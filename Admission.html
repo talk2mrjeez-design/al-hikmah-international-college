@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admission - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <img src="images/file_00000000f01c81f4ad75d1515deaa5c0.png"
+         alt="School Logo"
+         class="logo">
+
+    <h1>Al-Hikmah International College</h1>
+
+    <p>Knowledge • Character • Excellence</p>
+
+</header>
+
+
+<nav>
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admission.html">Admission</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+
+</nav>
+
+
+<main>
+
+    <h2>Admission Application</h2>
+
+    <p>
+        Please complete the form below to express your interest
+        in admission.
+    </p>
+
+<form class="admission-form" id="admissionForm">
+
+
+        <label for="studentName">
+            Student Full Name
+        </label>
+
+        <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            placeholder="Enter student's full name"
+            required
+        >
+
+
+        <label for="dob">
+            Date of Birth
+        </label>
+
+        <input
+            type="date"
+            id="dob"
+            name="dob"
+            required
+        >
+
+
+        <label for="gender">
+            Gender
+        </label>
+
+        <select id="gender" name="gender" required>
+
+            <option value="">
+                Select Gender
+            </option>
+
+            <option value="male">
+                Male
+            </option>
+
+            <option value="female">
+                Female
+            </option>
+
+        </select>
+
+
+        <label for="class">
+            Class Applying For
+        </label>
+
+        <select id="class" name="class" required>
+
+            <option value="">
+                Select Class
+            </option>
+
+            <option>JSS 1</option>
+            <option>JSS 2</option>
+            <option>JSS 3</option>
+
+            <option>SS 1</option>
+            <option>SS 2</option>
+            <option>SS 3</option>
+
+        </select>
+
+
+        <label for="parent">
+            Parent/Guardian Name
+        </label>
+
+        <input
+            type="text"
+            id="parent"
+            name="parent"
+            placeholder="Enter parent/guardian name"
+            required
+        >
+
+
+        <label for="phone">
+            Parent/Guardian Phone
+        </label>
+
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter phone number"
+            required
+        >
+
+
+        <label for="email">
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter email address"
+        >
+
+
+        <label for="message">
+            Additional Information
+        </label>
+
+        <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Any additional information">
+        </textarea>
+
+
+        <button type="submit">
+            Submit Application
+        </button>
+
+
+    </form>
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Al-Hikmah International College</p>
+
+    <p>All Rights Reserved.</p>
+
+</footer>
+<section class="admission-intro">
+
+    <h2>Admission Application</h2>
+
+    <p>
+        Thank you for your interest in Al-Hikmah International
+        College. Complete the form below to begin your
+        admission application.
+    </p>
+
+</section>
+
+
+<section class="admission-steps">
+
+    <div>
+        <span>1</span>
+        <h3>Complete the Form</h3>
+        <p>Provide the student's required information.</p>
+    </div>
+
+    <div>
+        <span>2</span>
+        <h3>Submit Application</h3>
+        <p>Review your information and submit the form.</p>
+    </div>
+
+    <div>
+        <span>3</span>
+        <h3>Contact the School</h3>
+        <p>The school can provide further admission information.</p>
+    </div>
+
+</section>
+<script>
+const form = document.getElementById("admissionForm");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const application = {
+        studentName: document.getElementById("studentName").value,
+        dob: document.getElementById("dob").value,
+        gender: document.getElementById("gender").value,
+        classApplying: document.getElementById("class").value,
+        parent: document.getElementById("parent").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        dateSubmitted: new Date().toLocaleString()
+    };
+
+    let applications =
+        JSON.parse(localStorage.getItem("applications")) || [];
+
+    applications.push(application);
+
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(applications)
+    );
+
+    alert("Application saved successfully!");
+
+    form.reset();
+
+});
+</script>
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("show");
+
+}
+
+</script>
+</body>
+</html>

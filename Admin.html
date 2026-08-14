@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="portal.css">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div>
+        <h1>Al-Hikmah International College</h1>
+        <p>Administration Portal</p>
+    </div>
+
+    <button id="logoutButton">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="welcome-card">
+
+        <h2>Welcome, Administrator 👋</h2>
+
+        <p>
+            Manage students, teachers, classes, subjects
+            and examination records from this dashboard.
+        </p>
+
+    </section>
+
+
+    <section class="dashboard-grid">
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">👨‍🎓</div>
+
+            <h3>Students</h3>
+
+            <p>
+                Add and manage student records.
+            </p>
+
+            <button onclick="showSection('students')">
+                Manage Students
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">👨‍🏫</div>
+
+            <h3>Teachers</h3>
+
+            <p>
+                Manage teaching staff.
+            </p>
+
+            <button onclick="showSection('teachers')">
+                Manage Teachers
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">🏫</div>
+
+            <h3>Classes</h3>
+
+            <p>
+                Manage school classes.
+            </p>
+
+            <button onclick="showSection('classes')">
+                Manage Classes
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">📚</div>
+
+            <h3>Subjects</h3>
+
+            <p>
+                Manage subjects taught in the school.
+            </p>
+
+            <button onclick="showSection('subjects')">
+                Manage Subjects
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">📊</div>
+
+            <h3>Results</h3>
+
+            <p>
+                View and manage examination results.
+            </p>
+
+            <button onclick="showSection('results')">
+                Manage Results
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">📅</div>
+
+            <h3>Academic Sessions</h3>
+
+            <p>
+                Manage academic sessions and terms.
+            </p>
+
+            <button onclick="showSection('sessions')">
+                Manage Sessions
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- STUDENTS -->
+
+<section id="students" class="management-section">
+
+    <h2>👨‍🎓 Student Management</h2>
+
+    <form id="studentForm" class="management-form">
+
+        <input
+            type="text"
+            id="studentAdmission"
+            placeholder="Admission Number"
+            required>
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Student Full Name"
+            required>
+<select id="studentClass" required>
+    <option value="">Loading classes...</option>
+</select>
+
+        <input
+            type="email"
+            id="studentEmail"
+            placeholder="Student Email (optional)">
+
+        <button type="submit">
+            Add Student
+        </button>
+
+    </form>
+
+    <p id="studentMessage"></p>
+
+    <hr>
+
+    <h3>Registered Students</h3>
+
+    <div id="studentList">
+        Loading students...
+    </div>
+
+    <br>
+
+    <button onclick="hideSections()">
+        Close
+    </button>
+
+</section>
+
+
+    <!-- TEACHERS -->
+
+<section id="teachers" class="management-section">
+
+    <h2>👨‍🏫 Teacher Management</h2>
+
+    <form id="teacherForm">
+
+        <input
+            type="text"
+            id="teacherName"
+            placeholder="Teacher Full Name"
+            required>
+
+        <input
+            type="email"
+            id="teacherEmail"
+            placeholder="Teacher Email"
+            required>
+
+        <button type="submit">
+            Add Teacher
+        </button>
+
+    </form>
+
+    <p id="teacherMessage"></p>
+
+    <hr>
+
+    <h3>Registered Teachers</h3>
+
+    <div id="teacherList">
+        Loading teachers...
+    </div>
+
+    <br>
+
+    <button onclick="hideSections()">
+        Close
+    </button>
+
+</section>
+
+
+    <!-- CLASSES -->
+
+    <section id="classes"
+             class="management-section">
+
+        <h2>🏫 Class Management</h2>
+
+        <p>
+            Class management will be connected to the
+            database here.
+        </p>
+
+        <button onclick="hideSections()">
+            Close
+        </button>
+
+    </section>
+
+
+    <!-- SUBJECTS -->
+<section id="subjects" class="management-section">
+
+    <h2>📚 Subject Management</h2>
+
+    <form id="subjectForm">
+
+        <input
+            type="text"
+            id="subjectName"
+            placeholder="Subject Name"
+            required>
+
+        <input
+            type="text"
+            id="subjectCode"
+            placeholder="Subject Code (optional)">
+
+        <button type="submit">
+            Add Subject
+        </button>
+
+    </form>
+
+    <p id="subjectMessage"></p>
+
+    <hr>
+
+    <h3>Registered Subjects</h3>
+
+    <div id="subjectList">
+        Loading subjects...
+    </div>
+
+    <br>
+
+    <button onclick="hideSections()">
+        Close
+    </button>
+
+</section>
+
+    <!-- RESULTS -->
+
+    <section id="results"
+             class="management-section">
+
+        <h2>📊 Result Management</h2>
+
+        <p>
+            Examination result management will be connected
+            here.
+        </p>
+
+        <button onclick="hideSections()">
+            Close
+        </button>
+
+    </section>
+
+
+    <!-- SESSIONS -->
+
+    <section id="sessions"
+             class="management-section">
+
+        <h2>📅 Academic Sessions</h2>
+
+        <p>
+            Academic session management will be connected
+            here.
+        </p>
+
+        <button onclick="hideSections()">
+            Close
+        </button>
+
+    </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="portal.js"></script>
+
+
+<script>
+
+function showSection(sectionId) {
+
+    hideSections();
+
+    document
+        .getElementById(sectionId)
+        .classList.add("active");
+
+}
+
+
+function hideSections() {
+
+    document
+        .querySelectorAll(".management-section")
+        .forEach(section => {
+
+            section.classList.remove("active");
+
+        });
+
+}
+
+</script>
+<script>
+async function testClasses() {
+
+    const dropdown =
+        document.getElementById("studentClass");
+
+    const { data, error } =
+        await supabaseClient
+            .from("classes")
+            .select("id, name")
+            .order("id");
+    <script>
+async function testClasses() {
+
+    const dropdown =
+        document.getElementById("studentClass");
+
+    dropdown.innerHTML =
+        '<option value="">Testing database...</option>';
+
+    try {
+
+        const result =
+            await supabaseClient
+                .from("classes")
+                .select("*");
+
+        alert(
+            JSON.stringify(result)
+        );
+
+    } catch (error) {
+
+        alert(
+            "JAVASCRIPT ERROR:\n" +
+            error.message
+        );
+
+    }
+
+}
+
+testClasses();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="portal.js"></script>
+<script>
+
+async function loadSubjects() {
+
+    const list =
+        document.getElementById("subjectList");
+
+    if (!list) return;
+
+    list.innerHTML = "Loading subjects...";
+
+    const result =
+        await supabaseClient
+            .from("subjects")
+            .select("id, name, code")
+            .order("name");
+
+    console.log("Subject result:", result);
+
+    if (result.error) {
+
+        list.innerHTML =
+            "Error loading subjects: " +
+            result.error.message;
+
+        return;
+    }
+
+    if (!result.data || result.data.length === 0) {
+
+        list.innerHTML =
+            "No subjects have been added yet.";
+
+        return;
+    }
+
+    list.innerHTML = "";
+
+    result.data.forEach(function(subject) {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "student-item";
+
+        item.innerHTML =
+            "<strong>" +
+            subject.name +
+            "</strong><br>" +
+            "Code: " +
+            (subject.code || "Not provided");
+
+        list.appendChild(item);
+
+    });
+}
+
+
+const subjectForm =
+    document.getElementById("subjectForm");
+
+
+if (subjectForm) {
+
+    subjectForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document
+                    .getElementById("subjectName")
+                    .value
+                    .trim();
+
+            const code =
+                document
+                    .getElementById("subjectCode")
+                    .value
+                    .trim();
+
+            const message =
+                document.getElementById(
+                    "subjectMessage"
+                );
+
+            message.textContent =
+                "Saving subject...";
+
+
+            const result =
+                await supabaseClient
+                    .from("subjects")
+                    .insert({
+                        name: name,
+                        code: code || null
+                    });
+
+
+            console.log(
+                "Insert result:",
+                result
+            );
+
+
+            if (result.error) {
+
+                message.textContent =
+                    "Error: " +
+                    result.error.message;
+
+                return;
+            }
+
+
+            message.textContent =
+                "✅ Subject added successfully!";
+
+
+            subjectForm.reset();
+
+            loadSubjects();
+
+        }
+    );
+
+}
+
+
+loadSubjects();
+
+</script>
+<script>
+async function testClasses() {
+
+    const dropdown =
+        document.getElementById("studentClass");
+
+    if (!dropdown) {
+        alert("Student class dropdown not found.");
+        return;
+    }
+
+    dropdown.innerHTML =
+        '<option value="">Testing...</option>';
+
+    const { data, error } =
+        await supabaseClient
+            .from("classes")
+            .select("id, name")
+            .order("id");
+
+    if (error) {
+
+        alert(
+            "DATABASE ERROR:\n\n" +
+            error.message
+        );
+
+        return;
+    }
+
+    alert(
+        "CLASSES FOUND:\n\n" +
+        JSON.stringify(data, null, 2)
+    );
+
+    dropdown.innerHTML =
+        '<option value="">Select Class</option>';
+
+    data.forEach(function(item) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = item.id;
+
+        option.textContent = item.name;
+
+        dropdown.appendChild(option);
+
+    });
+}
+
+testClasses();
+<script>
+alert("ADMIN PAGE SCRIPT IS WORKING");
+</script>
+<script>
+
+async function loadSubjects() {
+
+    const list =
+        document.getElementById("subjectList");
+
+    if (!list) return;
+
+    list.innerHTML = "Loading subjects...";
+
+    const result =
+        await supabaseClient
+            .from("subjects")
+            .select("id, name, code")
+            .order("name");
+
+    console.log("Subject result:", result);
+
+    if (result.error) {
+
+        list.innerHTML =
+            "Error loading subjects: " +
+            result.error.message;
+
+        return;
+    }
+
+    if (!result.data || result.data.length === 0) {
+
+        list.innerHTML =
+            "No subjects have been added yet.";
+
+        return;
+    }
+
+    list.innerHTML = "";
+
+    result.data.forEach(function(subject) {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "student-item";
+
+        item.innerHTML =
+            "<strong>" +
+            subject.name +
+            "</strong><br>" +
+            "Code: " +
+            (subject.code || "Not provided");
+
+        list.appendChild(item);
+
+    });
+}
+
+
+const subjectForm =
+    document.getElementById("subjectForm");
+
+
+if (subjectForm) {
+
+    subjectForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document
+                    .getElementById("subjectName")
+                    .value
+                    .trim();
+
+            const code =
+                document
+                    .getElementById("subjectCode")
+                    .value
+                    .trim();
+
+            const message =
+                document.getElementById(
+                    "subjectMessage"
+                );
+
+            message.textContent =
+                "Saving subject...";
+
+
+            const result =
+                await supabaseClient
+                    .from("subjects")
+                    .insert({
+                        name: name,
+                        code: code || null
+                    });
+
+
+            console.log(
+                "Insert result:",
+                result
+            );
+
+
+            if (result.error) {
+
+                message.textContent =
+                    "Error: " +
+                    result.error.message;
+
+                return;
+            }
+
+
+            message.textContent =
+                "✅ Subject added successfully!";
+
+
+            subjectForm.reset();
+
+            loadSubjects();
+
+        }
+    );
+
+}
+
+
+loadSubjects();
+<script>
+
+async function loadTeachers() {
+
+    const list =
+        document.getElementById("teacherList");
+
+    if (!list) return;
+
+    list.innerHTML =
+        "Loading teachers...";
+
+
+    const result =
+        await supabaseClient
+            .from("teachers")
+            .select("id, full_name, email")
+            .order("full_name");
+
+
+    if (result.error) {
+
+        list.innerHTML =
+            "Error loading teachers: " +
+            result.error.message;
+
+        return;
+    }
+
+
+    if (!result.data ||
+        result.data.length === 0) {
+
+        list.innerHTML =
+            "No teachers have been added yet.";
+
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
+    result.data.forEach(function(teacher) {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "student-item";
+
+
+        item.innerHTML =
+            "<strong>" +
+            teacher.full_name +
+            "</strong><br>" +
+            "Email: " +
+            teacher.email;
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+const teacherForm =
+    document.getElementById("teacherForm");
+
+
+if (teacherForm) {
+
+    teacherForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("teacherName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("teacherEmail")
+                    .value
+                    .trim();
+
+
+            const message =
+                document.getElementById(
+                    "teacherMessage"
+                );
+
+
+            message.textContent =
+                "Saving teacher...";
+
+
+            const result =
+                await supabaseClient
+                    .from("teachers")
+                    .insert({
+
+                        full_name: name,
+
+                        email: email
+
+                    });
+
+
+            if (result.error) {
+
+                message.textContent =
+                    "Error: " +
+                    result.error.message;
+
+                return;
+            }
+
+
+            message.textContent =
+                "✅ Teacher added successfully!";
+
+
+            teacherForm.reset();
+
+
+            loadTeachers();
+
+        }
+    );
+
+}
+
+
+loadTeachers();
+
+</script>
+</script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <img src="images/file_00000000f01c81f4ad75d1515deaa5c0.png"
+         alt="School Logo"
+         class="logo">
+
+    <h1>Al-Hikmah International College</h1>
+
+    <p>Knowledge • Character • Excellence</p>
+
+</header>
+
+
+<nav class="navbar">
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="admission.html">Admission</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="fees.html">Fees</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+    <section class="gallery-intro">
+
+        <h2>School Gallery</h2>
+
+        <p>
+            Explore some moments and facilities from
+            Al-Hikmah International College.
+        </p>
+
+    </section>
+
+
+    <section class="gallery-grid">
+
+        <div class="gallery-item">
+
+            <img src="images/school.jpg"
+                 alt="School Building">
+
+            <div class="gallery-caption">
+                School Campus
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="images/students.jpg"
+                 alt="Students">
+
+            <div class="gallery-caption">
+                Our Students
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="images/teachers.jpg"
+                 alt="Teachers">
+
+            <div class="gallery-caption">
+                Teaching Staff
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="images/laboratory.jpg"
+                 alt="School Laboratory">
+
+            <div class="gallery-caption">
+                Science Laboratory
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="images/library.jpg"
+                 alt="School Library">
+
+            <div class="gallery-caption">
+                School Library
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="images/sports.jpg"
+                 alt="Sports Activities">
+
+            <div class="gallery-caption">
+                Sports & Activities
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Al-Hikmah International College</p>
+
+    <p>Knowledge • Character • Excellence</p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("show");
+
+}
+
+</script>
+
+</body>
+
+</html>

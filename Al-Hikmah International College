@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Hikmah International College</title>
+</head><link rel="stylesheet" href="style.css">
+<script>
+
+function searchSite() {
+
+    const query =
+        document.getElementById("siteSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (!query) {
+
+        alert("Please enter something to search.");
+
+        return;
+
+    }
+
+    const pages = [
+
+        {
+            name: "About Us",
+            url: "about.html",
+            keywords: "about history mission vision values"
+        },
+
+        {
+            name: "Academics",
+            url: "academics.html",
+            keywords: "subjects science arts commercial classes"
+        },
+
+        {
+            name: "Admission",
+            url: "admission.html",
+            keywords: "admission application apply"
+        },
+
+        {
+            name: "Gallery",
+            url: "gallery.html",
+            keywords: "photos pictures school gallery"
+        },
+
+        {
+            name: "Staff",
+            url: "staff.html",
+            keywords: "principal teachers staff"
+        },
+
+        {
+            name: "Fees",
+            url: "fees.html",
+            keywords: "fees tuition payment school fees"
+        },
+
+        {
+            name: "FAQ",
+            url: "faq.html",
+            keywords: "questions answers faq"
+        },
+
+        {
+            name: "Contact",
+            url: "contact.html",
+            keywords: "phone whatsapp email address contact"
+        }
+
+    ];
+
+    const result = pages.find(page =>
+        page.name.toLowerCase().includes(query) ||
+        page.keywords.includes(query)
+    );
+
+    if (result) {
+
+        window.location.href = result.url;
+
+    } else {
+
+        alert("No matching page was found.");
+
+    }
+
+}
+
+</script>
+<body>
+
+    <header>
+        <h1>Al-Hikmah International College</h1>
+        <p>Knowledge • Character • Excellence</p>
+    </header>
+<nav class="navbar">
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+<nav class="navbar">
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="admission.html">Admission</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="fees.html">Fees</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+
+    </div>
+<div class="site-search">
+
+    <input
+        type="search"
+        id="siteSearch"
+        placeholder="Search website..."
+    >
+
+    <button onclick="searchSite()">
+        🔍
+    </button>
+
+</div>
+</nav>
+    </nav>
+
+    <main>
+        <h2>Welcome to Al-Hikmah International College</h2>
+
+        <p>
+            We are committed to providing quality education,
+            building good character and preparing students
+            for a successful future.
+        </p>
+
+        <button>Apply for Admission</button>
+
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h2>Building Future Leaders</h2>
+
+        <p>
+            Providing quality education, strong moral values
+            and the skills students need to succeed.
+        </p>
+
+
+
+
+<section class="cards">
+
+    <div class="card">
+
+        <h3>📚 Quality Education</h3>
+
+        <p>
+            We provide students with a strong academic foundation
+            across science, arts and commercial subjects.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🌟 Good Character</h3>
+
+        <p>
+            We encourage discipline, respect, responsibility
+            and good moral values.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>🎯 Future Focused</h3>
+
+        <p>
+            Our students are prepared for higher education,
+            careers and responsible leadership.
+        </p>
+
+    </div>
+
+</section>
+<section class="principal">
+
+    <div class="principal-text">
+
+        <h2>Message from the Principal</h2>
+
+        <p>
+            Welcome to Al-Hikmah International College. Our goal is
+            to provide every student with quality education, good
+            character and the confidence to achieve their dreams.
+        </p>
+
+        <p>
+            We believe that education is not only about academic
+            success, but also about discipline, integrity,
+            responsibility and service to society.
+        </p>
+
+        <h3>— The Principal</h3>
+
+    </div>
+
+</section>
+<section class="announcements">
+
+    <h2>Latest Announcements</h2>
+
+    <div class="announcement-list">
+
+        <div class="announcement">
+            <span class="announcement-date">2026</span>
+
+            <div>
+                <h3>Admission Is Open</h3>
+
+                <p>
+                    Applications are currently being welcomed
+                    for eligible students.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="announcement">
+            <span class="announcement-date">NEW</span>
+
+            <div>
+                <h3>Welcome to Our New Website</h3>
+
+                <p>
+                    Welcome to the official website of
+                    Al-Hikmah International College.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="announcement">
+            <span class="announcement-date">INFO</span>
+
+            <div>
+                <h3>Academic Excellence</h3>
+
+                <p>
+                    Our school continues to focus on academic
+                    excellence and character development.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section><section class="why-us">
+
+    <h2>Why Choose Al-Hikmah?</h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="why-icon">🎓</div>
+            <h3>Academic Excellence</h3>
+            <p>
+                We encourage students to achieve their
+                highest academic potential.
+            </p>
+        </div>
+
+
+        <div class="why-card">
+            <div class="why-icon">🕌</div>
+            <h3>Moral Development</h3>
+            <p>
+                We promote discipline, respect and
+                strong moral values.
+            </p>
+        </div>
+
+
+        <div class="why-card">
+            <div class="why-icon">🔬</div>
+            <h3>Modern Learning</h3>
+            <p>
+                Students are encouraged to learn through
+                practical activities and innovation.
+            </p>
+        </div>
+
+
+        <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>Supportive Environment</h3>
+            <p>
+                We create a friendly environment where
+                students can learn and grow.
+            </p>
+        </div>
+
+    </div>
+<section class="apply-section">
+
+    <div class="apply-content">
+
+        <h2>Give Your Child a Brighter Future</h2>
+
+        <p>
+            Begin your child's educational journey at
+            Al-Hikmah International College.
+        </p>
+
+        <div class="apply-buttons">
+
+            <a href="admission.html" class="apply-button">
+                📝 Apply for Admission
+            </a>
+
+            <a href="https://wa.me/2349035979273"
+               class="apply-button whatsapp-button"
+               target="_blank">
+                💬 Chat on WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+<section class="school-stats">
+
+    <div class="stat">
+
+        <span class="stat-number">0</span>
+
+        <p>Students</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <span class="stat-number">0</span>
+
+        <p>Teachers</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <span class="stat-number">0</span>
+
+        <p>Class Levels</p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <span class="stat-number">2026</span>
+
+        <p>Academic Year</p>
+
+    </div>
+
+</section>
+</section>
+</section>
+<footer>
+
+   <footer class="school-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-section">
+
+            <h3>Al-Hikmah International College</h3>
+
+            <p>
+                Knowledge • Character • Excellence
+            </p>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+
+            <a href="about.html">About Us</a>
+            <a href="academics.html">Academics</a>
+            <a href="admission.html">Admission</a>
+            <a href="gallery.html">Gallery</a>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Contact</h3>
+
+            <p>📞 09035979273</p>
+            <p>📞 08152698473</p>
+            <p>📧 info@alhikmahcollege.com</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Al-Hikmah International College.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+</footer>
+
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("show");
+
+}
+
+</script>
+<button id="backToTop" onclick="goTop()">
+    ↑
+</button>
+<script>
+
+function goTop() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+window.addEventListener("scroll", function() {
+
+    const button =
+        document.getElementById("backToTop");
+
+    if (window.scrollY > 300) {
+
+        button.style.display = "block";
+
+    } else {
+
+        button.style.display = "none";
+
+    }
+
+});
+
+</script>
+<a
+    href="https://wa.me/2349035979273"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Chat with the school on WhatsApp">
+    💬
+</a>
+</body>
+</html>

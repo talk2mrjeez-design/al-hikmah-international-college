@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Teacher Dashboard - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="portal.css">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div>
+
+        <h1>
+            Al-Hikmah International College
+        </h1>
+
+        <p>
+            Teacher Portal
+        </p>
+
+    </div>
+
+    <button id="logoutButton">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="welcome-card">
+
+        <h2>
+            Welcome, Teacher 👨‍🏫
+        </h2>
+
+        <p id="teacherNameDisplay">
+            Loading your profile...
+        </p>
+
+    </section>
+
+
+    <section class="dashboard-grid">
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📝
+            </div>
+
+            <h3>
+                Enter Results
+            </h3>
+
+            <p>
+                Enter continuous assessment
+                and examination scores.
+            </p>
+
+            <button onclick="showTeacherSection('enterResults')">
+                Enter Results
+            </button>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                My Results
+            </h3>
+
+            <p>
+                View examination records
+                submitted by you.
+            </p>
+
+            <button onclick="showTeacherSection('myResults')">
+                View Results
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENTER RESULTS -->
+
+    <section
+        id="enterResults"
+        class="management-section">
+
+        <h2>
+            📝 Enter Examination Results
+        </h2>
+
+        <p>
+            The result-entry form will be connected
+            to your students and subjects next.
+        </p>
+
+        <button onclick="hideTeacherSections()">
+            Close
+        </button>
+
+    </section>
+
+
+    <!-- MY RESULTS -->
+
+    <section
+        id="myResults"
+        class="management-section">
+
+        <h2>
+            📊 My Submitted Results
+        </h2>
+
+        <p>
+            Your submitted results will appear here.
+        </p>
+
+        <button onclick="hideTeacherSections()">
+            Close
+        </button>
+
+    </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="portal.js"></script>
+
+
+<script>
+
+function showTeacherSection(sectionId) {
+
+    hideTeacherSections();
+
+    document
+        .getElementById(sectionId)
+        .classList.add("active");
+
+}
+
+
+function hideTeacherSections() {
+
+    document
+        .querySelectorAll(".management-section")
+        .forEach(function(section) {
+
+            section.classList.remove("active");
+
+        });
+
+}
+
+</script>
+
+</body>
+
+</html>

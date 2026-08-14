@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Portal Login - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="portal.css">
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <img
+                src="../images/file_00000000f01c81f4ad75d1515deaa5c0.png"
+                alt="Al-Hikmah International College"
+                class="portal-logo">
+
+            <h1>Al-Hikmah International College</h1>
+
+            <p class="portal-title">
+                Student & Staff Portal
+            </p>
+
+
+            <form id="loginForm">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required>
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p id="message"></p>
+
+
+            <a href="../index.html" class="back-home">
+                ← Back to School Website
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="portal.js"></script>
+
+</body>
+
+</html>

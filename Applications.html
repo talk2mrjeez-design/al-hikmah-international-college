@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Applications - Al-Hikmah International College</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <img src="images/file_00000000f01c81f4ad75d1515deaa5c0.png"
+         alt="School Logo"
+         class="logo">
+
+    <h1>Al-Hikmah International College</h1>
+
+    <p>Admission Applications</p>
+
+</header>
+
+
+<main>
+
+    <h2>Submitted Applications</h2>
+
+    <div id="applications"></div>
+
+</main>
+
+
+<footer>
+
+    <p>© 2026 Al-Hikmah International College</p>
+
+</footer>
+
+
+<script>
+
+const container =
+    document.getElementById("applications");
+
+const applications =
+    JSON.parse(localStorage.getItem("applications")) || [];
+
+
+if (applications.length === 0) {
+
+    container.innerHTML =
+        "<p>No applications have been submitted yet.</p>";
+
+} else {
+
+    applications.forEach((app, index) => {
+
+        const card = document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <h3>Application ${index + 1}</h3>
+
+            <p>
+                <strong>Student:</strong>
+                ${app.studentName}
+            </p>
+
+            <p>
+                <strong>Date of Birth:</strong>
+                ${app.dob}
+            </p>
+
+            <p>
+                <strong>Gender:</strong>
+                ${app.gender}
+            </p>
+
+            <p>
+                <strong>Class:</strong>
+                ${app.classApplying}
+            </p>
+
+            <p>
+                <strong>Parent/Guardian:</strong>
+                ${app.parent}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                ${app.phone}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                ${app.email || "Not provided"}
+            </p>
+
+            <p>
+                <strong>Additional Information:</strong>
+                ${app.message || "None"}
+            </p>
+
+            <p>
+                <strong>Submitted:</strong>
+                ${app.dateSubmitted}
+            </p>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+</script>
+<script>
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById("navLinks");
+
+    nav.classList.toggle("show");
+
+}
+
+</script>
+</body>
+
+</html>
