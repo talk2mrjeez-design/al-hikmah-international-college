@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Application Payment | Abiola Computer Plaza</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+.topbar{
+    background:#062d61;
+    color:white;
+    padding:14px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:45px;
+    height:45px;
+    border-radius:10px;
+    background:linear-gradient(
+        135deg,
+        #08a6ff,
+        #087cf0
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.brand h2{
+    font-size:16px;
+}
+
+.brand p{
+    font-size:10px;
+    color:#c8ddf5;
+}
+
+.student{
+    text-align:right;
+    font-size:11px;
+}
+
+.student strong{
+    display:block;
+}
+
+.logout{
+    border:none;
+    background:#fff0f0;
+    color:#c62828;
+    padding:9px 12px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:11px;
+}
+
+.page{
+    width:94%;
+    max-width:1050px;
+    margin:30px auto 60px;
+}
+
+.header{
+    background:white;
+    padding:27px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+    margin-bottom:20px;
+}
+
+.header h1{
+    color:#082d60;
+    font-size:27px;
+    margin-bottom:7px;
+}
+
+.header p{
+    color:#718096;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.info{
+    margin-top:17px;
+    background:#fff8e5;
+    border:1px solid #f0dda0;
+    border-radius:9px;
+    padding:14px;
+    color:#715600;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+    margin-bottom:20px;
+}
+
+.card h2{
+    color:#112b4d;
+    font-size:19px;
+    margin-bottom:18px;
+}
+
+.summary{
+    border:1px solid #e3e9f0;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:14px;
+    border-bottom:1px solid #e8edf2;
+    font-size:13px;
+}
+
+.summary-row:last-child{
+    border-bottom:none;
+}
+
+.summary-row span{
+    color:#718096;
+}
+
+.summary-row strong{
+    color:#25364d;
+    text-align:right;
+}
+
+.total{
+    background:#edf6ff;
+}
+
+.total strong{
+    color:#087cf0;
+    font-size:17px;
+}
+
+.payment-method{
+    border:2px solid #dce5ee;
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:12px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.payment-method:hover{
+    border-color:#087cf0;
+}
+
+.payment-method.active{
+    border-color:#087cf0;
+    background:#f4f9ff;
+}
+
+.payment-method input{
+    width:auto;
+    margin-right:8px;
+}
+
+.payment-method strong{
+    font-size:13px;
+    color:#24354d;
+}
+
+.payment-method p{
+    font-size:11px;
+    color:#7c8999;
+    line-height:1.5;
+    margin-top:8px;
+}
+
+.reference{
+    margin-top:20px;
+}
+
+.reference label{
+    display:block;
+    font-size:12px;
+    font-weight:bold;
+    color:#34445b;
+    margin-bottom:7px;
+}
+
+.reference input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d5dde7;
+    border-radius:8px;
+    outline:none;
+}
+
+.reference input:focus{
+    border-color:#087cf0;
+    box-shadow:0 0 0 3px rgba(8,124,240,.09);
+}
+
+.btn{
+    width:100%;
+    border:none;
+    padding:14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:13px;
+    margin-top:15px;
+}
+
+.primary{
+    background:#087cf0;
+    color:white;
+}
+
+.primary:hover{
+    background:#055db7;
+}
+
+.secondary{
+    background:#edf3f8;
+    color:#43546a;
+}
+
+.status-box{
+    text-align:center;
+    padding:25px;
+    border-radius:11px;
+    background:#fff8e8;
+    border:1px solid #f1dda8;
+}
+
+.status-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.status-box h3{
+    color:#765900;
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.status-box p{
+    color:#796c47;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.reference-number{
+    background:#f0f5fa;
+    border-radius:8px;
+    padding:12px;
+    margin-top:15px;
+    font-size:11px;
+    word-break:break-all;
+}
+
+.notice{
+    background:#edf7ff;
+    border:1px solid #c9e4fb;
+    padding:14px;
+    border-radius:9px;
+    color:#315875;
+    font-size:11px;
+    line-height:1.6;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:14px;
+    color:#087cf0;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.message{
+    display:none;
+    padding:13px;
+    border-radius:8px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.message.error{
+    display:block;
+    background:#fff0f0;
+    color:#b42318;
+    border:1px solid #f1c2c2;
+}
+
+.message.success{
+    display:block;
+    background:#eaf9ef;
+    color:#16733b;
+    border:1px solid #bce7c9;
+}
+
+@media(max-width:800px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .student{
+        display:none;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .page{
+        width:95%;
+        margin-top:15px;
+    }
+
+    .header,
+    .card{
+        padding:19px;
+    }
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .summary-row{
+        font-size:12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="logo">
+            ACP
+        </div>
+
+        <div>
+
+            <h2>
+                Abiola Computer Plaza
+            </h2>
+
+            <p>
+                Student Admission Portal
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="student">
+
+        <strong id="studentName">
+            Student
+        </strong>
+
+        <span id="studentId">
+            ACP-000000
+        </span>
+
+    </div>
+
+
+    <button
+        class="logout"
+        onclick="logout()">
+
+        Logout
+
+    </button>
+
+</header>
+
+
+
+<main class="page">
+
+
+    <section class="header">
+
+        <h1>
+            Application Fee Payment
+        </h1>
+
+        <p>
+            Complete your application payment to proceed
+            with the admission application process.
+        </p>
+
+
+        <div class="info">
+
+            <strong>
+                Important:
+            </strong>
+
+            The application fee is
+            <strong>₦5,000</strong>
+            and is non-refundable.
+
+            A payment/bank charge of
+            <strong>₦300</strong>
+            applies.
+
+            Therefore, the total application payment is
+            <strong>₦5,300</strong>.
+
+        </div>
+
+    </section>
+
+
+
+    <div id="message" class="message"></div>
+
+
+
+    <div class="layout">
+
+
+        <!-- LEFT -->
+
+        <div>
+
+
+            <section class="card">
+
+                <h2>
+                    Payment Summary
+                </h2>
+
+
+                <div class="summary">
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Applicant
+                        </span>
+
+                        <strong id="summaryName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Student ID
+                        </span>
+
+                        <strong id="summaryId">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Application Fee
+                        </span>
+
+                        <strong>
+                            ₦5,000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Bank/Payment Charge
+                        </span>
+
+                        <strong>
+                            ₦300
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-row total">
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <strong>
+                            ₦5,300
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <section class="card">
+
+                <h2>
+                    Select Payment Method
+                </h2>
+
+
+                <label
+                    class="payment-method active">
+
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="Online Payment"
+                        checked>
+
+                    <strong>
+                        💳 Online Payment
+                    </strong>
+
+                    <p>
+                        Pay securely online using the
+                        available payment gateway.
+                    </p>
+
+                </label>
+
+
+                <label
+                    class="payment-method">
+
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="Bank Transfer">
+
+                    <strong>
+                        🏦 Bank Transfer
+                    </strong>
+
+                    <p>
+                        Transfer the required amount and
+                        submit the transaction reference
+                        for verification.
+                    </p>
+
+                </label>
+
+
+                <div class="reference">
+
+                    <label>
+                        Transaction Reference
+                    </label>
+
+                    <input
+                        type="text"
+                        id="transactionReference"
+                        placeholder="Enter transaction reference after payment">
+
+                </div>
+
+
+                <button
+                    class="btn primary"
+                    onclick="submitPayment()">
+
+                    Submit Payment Record
+
+                </button>
+
+
+                <a
+                    href="student-portal.html"
+                    class="back">
+
+                    ← Return to Student Dashboard
+
+                </a>
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- RIGHT -->
+
+        <div>
+
+
+            <section class="card">
+
+                <h2>
+                    Payment Status
+                </h2>
+
+
+                <div
+                    class="status-box"
+                    id="statusBox">
+
+                    <div class="status-icon">
+                        💳
+                    </div>
+
+                    <h3>
+                        Payment Required
+                    </h3>
+
+                    <p>
+                        Your application payment has not
+                        yet been submitted.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="card">
+
+                <h2>
+                    Payment Instructions
+                </h2>
+
+
+                <div class="notice">
+
+                    <strong>
+                        Step 1:
+                    </strong>
+
+                    Pay the application amount of
+                    <strong>₦5,300</strong>.
+
+                    <br><br>
+
+                    <strong>
+                        Step 2:
+                    </strong>
+
+                    Keep your payment receipt or
+                    transaction reference.
+
+                    <br><br>
+
+                    <strong>
+                        Step 3:
+                    </strong>
+
+                    Enter your transaction reference
+                    on this page.
+
+                    <br><br>
+
+                    <strong>
+                        Step 4:
+                    </strong>
+
+                    Submit the payment record.
+
+                    <br><br>
+
+                    <strong>
+                        Step 5:
+                    </strong>
+
+                    The payment will be verified by
+                    the Abiola Computer Plaza
+                    administration.
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+const STUDENT_STORAGE =
+    "abiolaComputerPlazaStudents";
+
+const LOGIN_STORAGE =
+    "abiolaComputerPlazaLoggedInStudent";
+
+
+function getStudents(){
+
+    return JSON.parse(
+        localStorage.getItem(
+            STUDENT_STORAGE
+        )
+    ) || [];
+
+}
+
+
+function saveStudents(students){
+
+    localStorage.setItem(
+        STUDENT_STORAGE,
+        JSON.stringify(students)
+    );
+
+}
+
+
+/* =====================================================
+   CURRENT STUDENT
+===================================================== */
+
+function getCurrentStudent(){
+
+    const id =
+        localStorage.getItem(
+            LOGIN_STORAGE
+        );
+
+
+    if(!id){
+
+        return null;
+
+    }
+
+
+    const students =
+        getStudents();
+
+
+    return students.find(
+        student =>
+        student.id === id
+    ) || null;
+
+}
+
+
+let currentStudent =
+    getCurrentStudent();
+
+
+/* =====================================================
+   LOGIN CHECK
+===================================================== */
+
+if(!currentStudent){
+
+    alert(
+        "Please login to your student account first."
+    );
+
+    window.location.href =
+        "student-portal.html";
+
+}
+
+
+/* =====================================================
+   DISPLAY INFORMATION
+===================================================== */
+
+if(currentStudent){
+
+    document.getElementById(
+        "studentName"
+    ).textContent =
+        currentStudent.fullName;
+
+
+    document.getElementById(
+        "studentId"
+    ).textContent =
+        currentStudent.id;
+
+
+    document.getElementById(
+        "summaryName"
+    ).textContent =
+        currentStudent.fullName;
+
+
+    document.getElementById(
+        "summaryId"
+    ).textContent =
+        currentStudent.id;
+
+
+    showExistingPayment();
+
+}
+
+
+/* =====================================================
+   PAYMENT METHOD UI
+===================================================== */
+
+document.querySelectorAll(
+    ".payment-method"
+).forEach(function(method){
+
+    method.addEventListener(
+        "click",
+        function(){
+
+            document.querySelectorAll(
+                ".payment-method"
+            ).forEach(function(item){
+
+                item.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            method.classList.add(
+                "active"
+            );
+
+
+            const radio =
+                method.querySelector(
+                    "input"
+                );
+
+            radio.checked = true;
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   GENERATE PAYMENT REFERENCE
+===================================================== */
+
+function generatePaymentReference(){
+
+    const timestamp =
+        Date.now();
+
+    const random =
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+    return (
+        "ACP-APP-" +
+        timestamp +
+        "-" +
+        random
+    );
+
+}
+
+
+/* =====================================================
+   SUBMIT PAYMENT
+===================================================== */
+
+function submitPayment(){
+
+    if(!currentStudent){
+
+        return;
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const transactionReference =
+        document.getElementById(
+            "transactionReference"
+        ).value.trim();
+
+
+    const paymentMethod =
+        document.querySelector(
+            'input[name="paymentMethod"]:checked'
+        ).value;
+
+
+    if(!transactionReference){
+
+        message.textContent =
+            "Please enter your transaction reference.";
+
+        message.className =
+            "message error";
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+        return;
+
+    }
+
+
+    if(transactionReference.length < 4){
+
+        message.textContent =
+            "Please enter a valid transaction reference.";
+
+        message.className =
+            "message error";
+
+        return;
+
+    }
+
+
+    const students =
+        getStudents();
+
+
+    const index =
+        students.findIndex(
+            student =>
+            student.id === currentStudent.id
+        );
+
+
+    if(index === -1){
+
+        message.textContent =
+            "Student account could not be found.";
+
+        message.className =
+            "message error";
+
+        return;
+
+    }
+
+
+    const paymentReference =
+        generatePaymentReference();
+
+
+    /*
+       Store payment information
+    */
+
+    students[index].application = {
+
+        ...(students[index].application || {}),
+
+        paymentStatus:
+            "Pending Verification",
+
+        applicationFee:
+            5000,
+
+        processingFee:
+            300,
+
+        totalApplicationPayment:
+            5300,
+
+        paymentMethod:
+            paymentMethod,
+
+        transactionReference:
+            transactionReference,
+
+        paymentReference:
+            paymentReference,
+
+        paymentSubmittedAt:
+            new Date().toISOString()
+
+    };
+
+
+    saveStudents(students);
+
+
+    currentStudent =
+        students[index];
+
+
+    /*
+       Success message
+    */
+
+    message.textContent =
+        "Your payment record has been submitted successfully. It is now awaiting verification by the administration.";
+
+    message.className =
+        "message success";
+
+
+    /*
+       Update status display
+    */
+
+    const statusBox =
+        document.getElementById(
+            "statusBox"
+        );
+
+
+    statusBox.innerHTML = `
+
+        <div class="status-icon">
+            ⏳
+        </div>
+
+        <h3>
+            Payment Verification Pending
+        </h3>
+
+        <p>
+            Your payment record has been received.
+            The administration will verify your payment
+            before your application can proceed.
+        </p>
+
+        <div class="reference-number">
+
+            <strong>
+                Payment Reference:
+            </strong>
+
+            <br>
+
+            ${paymentReference}
+
+        </div>
+
+    `;
+
+
+    /*
+       Disable submission
+    */
+
+    const button =
+        document.querySelector(
+            ".primary"
+        );
+
+    button.disabled = true;
+
+    button.textContent =
+        "Payment Submitted ✓";
+
+    button.style.opacity =
+        "0.65";
+
+    button.style.cursor =
+        "not-allowed";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   SHOW EXISTING PAYMENT
+===================================================== */
+
+function showExistingPayment(){
+
+    if(
+        !currentStudent ||
+        !currentStudent.application
+    ){
+
+        return;
+
+    }
+
+
+    const status =
+        currentStudent.application.paymentStatus;
+
+
+    const statusBox =
+        document.getElementById(
+            "statusBox"
+        );
+
+
+    if(status === "Paid"){
+
+        statusBox.innerHTML = `
+
+            <div class="status-icon">
+                ✅
+            </div>
+
+            <h3 style="color:#16733b;">
+                Payment Verified
+            </h3>
+
+            <p>
+                Your application payment has been
+                verified by the administration.
+                You may continue with your application.
+            </p>
+
+            <div class="reference-number">
+                Payment Reference:
+                <strong>
+                    ${
+                        currentStudent.application
+                        .paymentReference || "-"
+                    }
+                </strong>
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    if(
+        status ===
+        "Pending Verification"
+    ){
+
+        statusBox.innerHTML = `
+
+            <div class="status-icon">
+                ⏳
+            </div>
+
+            <h3>
+                Payment Verification Pending
+            </h3>
+
+            <p>
+                Your payment record has been submitted
+                and is waiting for administrator verification.
+            </p>
+
+            <div class="reference-number">
+                Payment Reference:
+                <strong>
+                    ${
+                        currentStudent.application
+                        .paymentReference || "-"
+                    }
+                </strong>
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout(){
+
+    localStorage.removeItem(
+        LOGIN_STORAGE
+    );
+
+    window.location.href =
+        "student-portal.html";
+
+}
+
+
+</script>
+
+</body>
+</html>
