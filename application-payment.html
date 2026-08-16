@@ -1,17 +1,13 @@
+application-payment.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Application Payment | Abiola Computer Plaza</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -24,8 +20,7 @@ body{
     color:#172033;
 }
 
-button,
-input{
+button{
     font-family:inherit;
 }
 
@@ -49,11 +44,7 @@ input{
     width:45px;
     height:45px;
     border-radius:10px;
-    background:linear-gradient(
-        135deg,
-        #08a6ff,
-        #087cf0
-    );
+    background:linear-gradient(135deg,#08a6ff,#087cf0);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -184,26 +175,10 @@ input{
 }
 
 .payment-method{
-    border:2px solid #dce5ee;
+    border:2px solid #087cf0;
     border-radius:10px;
     padding:16px;
-    margin-bottom:12px;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.payment-method:hover{
-    border-color:#087cf0;
-}
-
-.payment-method.active{
-    border-color:#087cf0;
     background:#f4f9ff;
-}
-
-.payment-method input{
-    width:auto;
-    margin-right:8px;
 }
 
 .payment-method strong{
@@ -216,31 +191,6 @@ input{
     color:#7c8999;
     line-height:1.5;
     margin-top:8px;
-}
-
-.reference{
-    margin-top:20px;
-}
-
-.reference label{
-    display:block;
-    font-size:12px;
-    font-weight:bold;
-    color:#34445b;
-    margin-bottom:7px;
-}
-
-.reference input{
-    width:100%;
-    padding:13px;
-    border:1px solid #d5dde7;
-    border-radius:8px;
-    outline:none;
-}
-
-.reference input:focus{
-    border-color:#087cf0;
-    box-shadow:0 0 0 3px rgba(8,124,240,.09);
 }
 
 .btn{
@@ -263,9 +213,9 @@ input{
     background:#055db7;
 }
 
-.secondary{
-    background:#edf3f8;
-    color:#43546a;
+.primary:disabled{
+    opacity:.65;
+    cursor:not-allowed;
 }
 
 .status-box{
@@ -345,7 +295,6 @@ input{
 }
 
 @media(max-width:800px){
-
     .layout{
         grid-template-columns:1fr;
     }
@@ -353,11 +302,9 @@ input{
     .student{
         display:none;
     }
-
 }
 
 @media(max-width:500px){
-
     .page{
         width:95%;
         margin-top:15px;
@@ -375,263 +322,142 @@ input{
     .summary-row{
         font-size:12px;
     }
-
 }
-
 </style>
-
 </head>
 
 <body>
-
 
 <header class="topbar">
 
     <div class="brand">
 
-        <div class="logo">
-            ACP
-        </div>
+        <div class="logo">ACP</div>
 
         <div>
-
-            <h2>
-                Abiola Computer Plaza
-            </h2>
-
-            <p>
-                Student Admission Portal
-            </p>
-
+            <h2>Abiola Computer Plaza</h2>
+            <p>Student Admission Portal</p>
         </div>
 
     </div>
-
 
     <div class="student">
 
-        <strong id="studentName">
-            Student
-        </strong>
+        <strong id="studentName">Student</strong>
 
-        <span id="studentId">
-            ACP-000000
-        </span>
+        <span id="studentId">ACP-000000</span>
 
     </div>
 
-
-    <button
-        class="logout"
-        onclick="logout()">
-
+    <button class="logout" onclick="logout()">
         Logout
-
     </button>
 
 </header>
 
 
-
 <main class="page">
-
 
     <section class="header">
 
-        <h1>
-            Application Fee Payment
-        </h1>
+        <h1>Application Fee Payment</h1>
 
         <p>
             Complete your application payment to proceed
             with the admission application process.
         </p>
 
-
         <div class="info">
 
-            <strong>
-                Important:
-            </strong>
+            <strong>TEST MODE:</strong>
 
-            The application fee is
-            <strong>₦5,000</strong>
-            and is non-refundable.
+            This payment page is connected to
+            <strong>Paystack Test Mode</strong>.
 
-            A payment/bank charge of
-            <strong>₦300</strong>
-            applies.
+            No real money will be charged.
 
-            Therefore, the total application payment is
-            <strong>₦5,300</strong>.
+            <br><br>
+
+            <strong>Test Application Fee: ₦1,000</strong>
 
         </div>
 
     </section>
 
 
-
     <div id="message" class="message"></div>
-
 
 
     <div class="layout">
 
-
-        <!-- LEFT -->
-
         <div>
-
 
             <section class="card">
 
-                <h2>
-                    Payment Summary
-                </h2>
-
+                <h2>Payment Summary</h2>
 
                 <div class="summary">
 
-
                     <div class="summary-row">
 
-                        <span>
-                            Applicant
-                        </span>
+                        <span>Applicant</span>
 
-                        <strong id="summaryName">
-                            -
-                        </strong>
+                        <strong id="summaryName">-</strong>
 
                     </div>
 
-
                     <div class="summary-row">
 
-                        <span>
-                            Student ID
-                        </span>
+                        <span>Student ID</span>
 
-                        <strong id="summaryId">
-                            -
-                        </strong>
+                        <strong id="summaryId">-</strong>
 
                     </div>
 
-
                     <div class="summary-row">
 
-                        <span>
-                            Application Fee
-                        </span>
+                        <span>Application Fee</span>
 
-                        <strong>
-                            ₦5,000
-                        </strong>
+                        <strong>₦1,000</strong>
 
                     </div>
-
-
-                    <div class="summary-row">
-
-                        <span>
-                            Bank/Payment Charge
-                        </span>
-
-                        <strong>
-                            ₦300
-                        </strong>
-
-                    </div>
-
 
                     <div class="summary-row total">
 
-                        <span>
-                            Total Amount
-                        </span>
+                        <span>Total Amount</span>
 
-                        <strong>
-                            ₦5,300
-                        </strong>
+                        <strong>₦1,000</strong>
 
                     </div>
-
 
                 </div>
 
             </section>
 
 
-
             <section class="card">
 
-                <h2>
-                    Select Payment Method
-                </h2>
+                <h2>Payment Method</h2>
 
+                <div class="payment-method">
 
-                <label
-                    class="payment-method active">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        value="Online Payment"
-                        checked>
-
-                    <strong>
-                        💳 Online Payment
-                    </strong>
+                    <strong>💳 Paystack Test Payment</strong>
 
                     <p>
-                        Pay securely online using the
-                        available payment gateway.
+                        Click the button below to open
+                        Paystack's secure test checkout.
+                        No real money will be charged.
                     </p>
-
-                </label>
-
-
-                <label
-                    class="payment-method">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        value="Bank Transfer">
-
-                    <strong>
-                        🏦 Bank Transfer
-                    </strong>
-
-                    <p>
-                        Transfer the required amount and
-                        submit the transaction reference
-                        for verification.
-                    </p>
-
-                </label>
-
-
-                <div class="reference">
-
-                    <label>
-                        Transaction Reference
-                    </label>
-
-                    <input
-                        type="text"
-                        id="transactionReference"
-                        placeholder="Enter transaction reference after payment">
 
                 </div>
 
 
                 <button
+                    id="payButton"
                     class="btn primary"
-                    onclick="submitPayment()">
+                    onclick="startPayment()">
 
-                    Submit Payment Record
+                    Pay ₦1,000 with Paystack
 
                 </button>
 
@@ -646,38 +472,26 @@ input{
 
             </section>
 
-
         </div>
 
 
-
-        <!-- RIGHT -->
-
         <div>
-
 
             <section class="card">
 
-                <h2>
-                    Payment Status
-                </h2>
-
+                <h2>Payment Status</h2>
 
                 <div
                     class="status-box"
                     id="statusBox">
 
-                    <div class="status-icon">
-                        💳
-                    </div>
+                    <div class="status-icon">💳</div>
 
-                    <h3>
-                        Payment Required
-                    </h3>
+                    <h3>Payment Required</h3>
 
                     <p>
                         Your application payment has not
-                        yet been submitted.
+                        yet been completed.
                     </p>
 
                 </div>
@@ -685,63 +499,40 @@ input{
             </section>
 
 
-
             <section class="card">
 
-                <h2>
-                    Payment Instructions
-                </h2>
-
+                <h2>Payment Instructions</h2>
 
                 <div class="notice">
 
-                    <strong>
-                        Step 1:
-                    </strong>
-
-                    Pay the application amount of
-                    <strong>₦5,300</strong>.
+                    <strong>Step 1:</strong>
+                    Click "Pay ₦1,000 with Paystack".
 
                     <br><br>
 
-                    <strong>
-                        Step 2:
-                    </strong>
-
-                    Keep your payment receipt or
-                    transaction reference.
+                    <strong>Step 2:</strong>
+                    Paystack Test Checkout will open.
 
                     <br><br>
 
-                    <strong>
-                        Step 3:
-                    </strong>
-
-                    Enter your transaction reference
-                    on this page.
+                    <strong>Step 3:</strong>
+                    Use Paystack's test payment details.
 
                     <br><br>
 
-                    <strong>
-                        Step 4:
-                    </strong>
-
-                    Submit the payment record.
+                    <strong>Step 4:</strong>
+                    After the test payment, Paystack
+                    returns you to this website.
 
                     <br><br>
 
-                    <strong>
-                        Step 5:
-                    </strong>
-
-                    The payment will be verified by
-                    the Abiola Computer Plaza
-                    administration.
+                    <strong>Step 5:</strong>
+                    The website verifies the transaction
+                    before showing it as paid.
 
                 </div>
 
             </section>
-
 
         </div>
 
@@ -750,86 +541,47 @@ input{
 </main>
 
 
-
 <script>
 
-
 /* =====================================================
-   STORAGE
+   AUTHENTICATION
 ===================================================== */
-
-const STUDENT_STORAGE =
-    "abiolaComputerPlazaStudents";
 
 const LOGIN_STORAGE =
     "abiolaComputerPlazaLoggedInStudent";
 
 
-function getStudents(){
+function getLoggedInStudent(){
 
-    return JSON.parse(
-        localStorage.getItem(
-            STUDENT_STORAGE
-        )
-    ) || [];
+    const stored =
+        localStorage.getItem(LOGIN_STORAGE);
 
-}
-
-
-function saveStudents(students){
-
-    localStorage.setItem(
-        STUDENT_STORAGE,
-        JSON.stringify(students)
-    );
-
-}
-
-
-/* =====================================================
-   CURRENT STUDENT
-===================================================== */
-
-function getCurrentStudent(){
-
-    const id =
-        localStorage.getItem(
-            LOGIN_STORAGE
-        );
-
-
-    if(!id){
-
+    if(!stored){
         return null;
+    }
+
+    try{
+
+        return JSON.parse(stored);
+
+    }catch(error){
+
+        return {
+            id: stored
+        };
 
     }
 
-
-    const students =
-        getStudents();
-
-
-    return students.find(
-        student =>
-        student.id === id
-    ) || null;
-
 }
 
 
-let currentStudent =
-    getCurrentStudent();
+const currentStudent =
+    getLoggedInStudent();
 
-
-/* =====================================================
-   LOGIN CHECK
-===================================================== */
 
 if(!currentStudent){
 
-    alert(
-        "Please login to your student account first."
-    );
+    alert("Please login to your student account first.");
 
     window.location.href =
         "student-portal.html";
@@ -838,310 +590,53 @@ if(!currentStudent){
 
 
 /* =====================================================
-   DISPLAY INFORMATION
+   DISPLAY STUDENT
 ===================================================== */
 
 if(currentStudent){
 
+    const name =
+        currentStudent.fullName ||
+        currentStudent.firstName ||
+        "Student";
+
+    const id =
+        currentStudent.id ||
+        currentStudent.candidateId ||
+        "ACP-000000";
+
     document.getElementById(
         "studentName"
-    ).textContent =
-        currentStudent.fullName;
-
+    ).textContent = name;
 
     document.getElementById(
         "studentId"
-    ).textContent =
-        currentStudent.id;
-
+    ).textContent = id;
 
     document.getElementById(
         "summaryName"
-    ).textContent =
-        currentStudent.fullName;
-
+    ).textContent = name;
 
     document.getElementById(
         "summaryId"
-    ).textContent =
-        currentStudent.id;
-
-
-    showExistingPayment();
+    ).textContent = id;
 
 }
 
 
 /* =====================================================
-   PAYMENT METHOD UI
+   MESSAGE
 ===================================================== */
 
-document.querySelectorAll(
-    ".payment-method"
-).forEach(function(method){
-
-    method.addEventListener(
-        "click",
-        function(){
-
-            document.querySelectorAll(
-                ".payment-method"
-            ).forEach(function(item){
-
-                item.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-            method.classList.add(
-                "active"
-            );
-
-
-            const radio =
-                method.querySelector(
-                    "input"
-                );
-
-            radio.checked = true;
-
-        }
-    );
-
-});
-
-
-/* =====================================================
-   GENERATE PAYMENT REFERENCE
-===================================================== */
-
-function generatePaymentReference(){
-
-    const timestamp =
-        Date.now();
-
-    const random =
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
-
-    return (
-        "ACP-APP-" +
-        timestamp +
-        "-" +
-        random
-    );
-
-}
-
-
-/* =====================================================
-   SUBMIT PAYMENT
-===================================================== */
-
-function submitPayment(){
-
-    if(!currentStudent){
-
-        return;
-
-    }
-
+function showMessage(text, type){
 
     const message =
-        document.getElementById(
-            "message"
-        );
+        document.getElementById("message");
 
-
-    const transactionReference =
-        document.getElementById(
-            "transactionReference"
-        ).value.trim();
-
-
-    const paymentMethod =
-        document.querySelector(
-            'input[name="paymentMethod"]:checked'
-        ).value;
-
-
-    if(!transactionReference){
-
-        message.textContent =
-            "Please enter your transaction reference.";
-
-        message.className =
-            "message error";
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-        return;
-
-    }
-
-
-    if(transactionReference.length < 4){
-
-        message.textContent =
-            "Please enter a valid transaction reference.";
-
-        message.className =
-            "message error";
-
-        return;
-
-    }
-
-
-    const students =
-        getStudents();
-
-
-    const index =
-        students.findIndex(
-            student =>
-            student.id === currentStudent.id
-        );
-
-
-    if(index === -1){
-
-        message.textContent =
-            "Student account could not be found.";
-
-        message.className =
-            "message error";
-
-        return;
-
-    }
-
-
-    const paymentReference =
-        generatePaymentReference();
-
-
-    /*
-       Store payment information
-    */
-
-    students[index].application = {
-
-        ...(students[index].application || {}),
-
-        paymentStatus:
-            "Pending Verification",
-
-        applicationFee:
-            5000,
-
-        processingFee:
-            300,
-
-        totalApplicationPayment:
-            5300,
-
-        paymentMethod:
-            paymentMethod,
-
-        transactionReference:
-            transactionReference,
-
-        paymentReference:
-            paymentReference,
-
-        paymentSubmittedAt:
-            new Date().toISOString()
-
-    };
-
-
-    saveStudents(students);
-
-
-    currentStudent =
-        students[index];
-
-
-    /*
-       Success message
-    */
-
-    message.textContent =
-        "Your payment record has been submitted successfully. It is now awaiting verification by the administration.";
+    message.textContent = text;
 
     message.className =
-        "message success";
-
-
-    /*
-       Update status display
-    */
-
-    const statusBox =
-        document.getElementById(
-            "statusBox"
-        );
-
-
-    statusBox.innerHTML = `
-
-        <div class="status-icon">
-            ⏳
-        </div>
-
-        <h3>
-            Payment Verification Pending
-        </h3>
-
-        <p>
-            Your payment record has been received.
-            The administration will verify your payment
-            before your application can proceed.
-        </p>
-
-        <div class="reference-number">
-
-            <strong>
-                Payment Reference:
-            </strong>
-
-            <br>
-
-            ${paymentReference}
-
-        </div>
-
-    `;
-
-
-    /*
-       Disable submission
-    */
-
-    const button =
-        document.querySelector(
-            ".primary"
-        );
-
-    button.disabled = true;
-
-    button.textContent =
-        "Payment Submitted ✓";
-
-    button.style.opacity =
-        "0.65";
-
-    button.style.cursor =
-        "not-allowed";
-
+        "message " + type;
 
     window.scrollTo({
         top:0,
@@ -1152,32 +647,213 @@ function submitPayment(){
 
 
 /* =====================================================
-   SHOW EXISTING PAYMENT
+   START PAYSTACK PAYMENT
 ===================================================== */
 
-function showExistingPayment(){
+async function startPayment(){
 
-    if(
-        !currentStudent ||
-        !currentStudent.application
-    ){
+    if(!currentStudent){
+
+        showMessage(
+            "Please login first.",
+            "error"
+        );
 
         return;
 
     }
 
 
-    const status =
-        currentStudent.application.paymentStatus;
+    const button =
+        document.getElementById("payButton");
+
+    button.disabled = true;
+
+    button.textContent =
+        "Preparing Paystack Checkout...";
 
 
-    const statusBox =
-        document.getElementById(
-            "statusBox"
+    try{
+
+        const email =
+            currentStudent.email ||
+            currentStudent.emailAddress;
+
+
+        if(!email){
+
+            throw new Error(
+                "Your account does not have an email address."
+            );
+
+        }
+
+
+        const response =
+            await fetch(
+                "/api/payment/initialize",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        email:email
+
+                    })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !result.success
+        ){
+
+            throw new Error(
+                result.message ||
+                "Unable to initialize payment."
+            );
+
+        }
+
+
+        /*
+           Save reference temporarily
+           for verification after checkout.
+        */
+
+        sessionStorage.setItem(
+            "paystackReference",
+            result.reference
         );
 
 
-    if(status === "Paid"){
+        /*
+           Redirect to Paystack Test Checkout
+        */
+
+        window.location.href =
+            result.authorizationUrl;
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showMessage(
+            error.message ||
+            "Unable to start payment.",
+            "error"
+        );
+
+        button.disabled = false;
+
+        button.textContent =
+            "Pay ₦1,000 with Paystack";
+
+    }
+
+}
+
+
+/* =====================================================
+   VERIFY PAYMENT AFTER RETURN
+===================================================== */
+
+async function verifyReturnedPayment(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const reference =
+        params.get("reference") ||
+        params.get("trxref") ||
+        sessionStorage.getItem(
+            "paystackReference"
+        );
+
+
+    if(!reference){
+
+        return;
+
+    }
+
+
+    const statusBox =
+        document.getElementById("statusBox");
+
+
+    statusBox.innerHTML = `
+
+        <div class="status-icon">
+            ⏳
+        </div>
+
+        <h3>
+            Verifying Payment...
+        </h3>
+
+        <p>
+            Please wait while we verify your
+            Paystack test transaction.
+        </p>
+
+    `;
+
+
+    try{
+
+        const response =
+            await fetch(
+                "/api/payment/verify",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        reference:reference
+
+                    })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !result.success
+        ){
+
+            throw new Error(
+                result.message ||
+                "Payment verification failed."
+            );
+
+        }
+
 
         statusBox.innerHTML = `
 
@@ -1186,67 +862,87 @@ function showExistingPayment(){
             </div>
 
             <h3 style="color:#16733b;">
-                Payment Verified
+                Payment Successful
             </h3>
 
             <p>
-                Your application payment has been
-                verified by the administration.
-                You may continue with your application.
+                Your Paystack test payment has been
+                successfully verified.
             </p>
 
             <div class="reference-number">
-                Payment Reference:
+
                 <strong>
-                    ${
-                        currentStudent.application
-                        .paymentReference || "-"
-                    }
+                    Transaction Reference:
                 </strong>
+
+                <br>
+
+                ${result.reference}
+
             </div>
 
         `;
 
-        return;
 
-    }
+        const button =
+            document.getElementById(
+                "payButton"
+            );
+
+        button.disabled = true;
+
+        button.textContent =
+            "Payment Completed ✓";
 
 
-    if(
-        status ===
-        "Pending Verification"
-    ){
+        showMessage(
+            "Payment verified successfully.",
+            "success"
+        );
+
+
+        sessionStorage.removeItem(
+            "paystackReference"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
 
         statusBox.innerHTML = `
 
             <div class="status-icon">
-                ⏳
+                ❌
             </div>
 
             <h3>
-                Payment Verification Pending
+                Payment Verification Failed
             </h3>
 
             <p>
-                Your payment record has been submitted
-                and is waiting for administrator verification.
+                ${error.message}
             </p>
 
-            <div class="reference-number">
-                Payment Reference:
-                <strong>
-                    ${
-                        currentStudent.application
-                        .paymentReference || "-"
-                    }
-                </strong>
-            </div>
-
         `;
+
+        showMessage(
+            error.message ||
+            "Payment verification failed.",
+            "error"
+        );
 
     }
 
 }
+
+
+/* =====================================================
+   CHECK FOR PAYSTACK RETURN
+===================================================== */
+
+verifyReturnedPayment();
 
 
 /* =====================================================
@@ -1259,13 +955,20 @@ function logout(){
         LOGIN_STORAGE
     );
 
+    sessionStorage.removeItem(
+        "paystackReference"
+    );
+
     window.location.href =
         "student-portal.html";
 
 }
 
-
 </script>
 
 </body>
 </html>
+
+After committing, wait for Cloudflare's automatic deployment to show the green checkmark.
+
+Don't click Paystack yet. Once the deployment is successful, tell me “Done” and we'll test the ₦1,000 payment using Paystack Test Mode only.
